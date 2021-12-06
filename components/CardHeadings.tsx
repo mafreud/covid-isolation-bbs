@@ -1,4 +1,3 @@
-/* This example requires Tailwind CSS v2.0+ */
 export default function CardHeadings() {
   return (
     <div className="bg-white px-4 py-5 border-b border-gray-200 sm:px-6 shadow overflow-hidden">
