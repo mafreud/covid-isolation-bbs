@@ -1,5 +1,6 @@
-import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+import type { AppProps } from "next/app";
 import {
   AuthProvider,
   FirebaseAppProvider,
@@ -8,7 +9,6 @@ import {
 } from "reactfire";
 import "../styles/globals.css";
 import "tailwindcss/tailwind.css";
-import type { AppProps } from "next/app";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCjXbVO_bymiShZIFucmHdyO2ZM_tOsfws",
