@@ -1,9 +1,8 @@
+import { collection, getFirestore, orderBy, query } from "firebase/firestore";
+import { useFirestoreCollectionData } from "reactfire";
 import CardHeadings from "../components/CardHeadings";
 import Header from "../components/Header";
 import StackedList from "../components/StackedList";
-
-import { collection, getFirestore, orderBy, query } from "firebase/firestore";
-import { useFirestoreCollectionData } from "reactfire";
 
 export default function Home() {
   return (
