@@ -4,5 +4,13 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   },
-  "cSpell.words": ["headlessui", "heroicons", "reactfire", "tailwindcss"]
+  "cSpell.words": [
+    "Firestore",
+    "headlessui",
+    "heroicons",
+    "reactfire",
+    "semibold",
+    "tailwindcss",
+    "uuidv"
+  ]
 }
