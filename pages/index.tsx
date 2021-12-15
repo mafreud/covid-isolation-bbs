@@ -18,7 +18,7 @@ export default function Home() {
 
 function ListView() {
   const threadsV1Col = collection(getFirestore(), "threads-v1");
-  const threadsV1Query = query(threadsV1Col, orderBy("createdAt", "asc"));
+  const threadsV1Query = query(threadsV1Col, orderBy("createdAt", "desc"));
 
   const { status, data: threads } = useFirestoreCollectionData(threadsV1Query, {
     idField: "id", // this field will be added to the object created from each document
@@ -32,7 +32,11 @@ function ListView() {
     <ul>
       {threads.map((threadData) => (
         <li key={threadData.id}>
-          <StackedList title={threadData.title} body={threadData.body} />
+          <StackedList
+            title={threadData.title}
+            body={threadData.body}
+            threadId={threadData.threadId}
+          />
         </li>
       ))}
     </ul>
