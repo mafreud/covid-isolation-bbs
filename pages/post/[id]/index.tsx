@@ -2,6 +2,7 @@ import {
   collection,
   doc,
   getFirestore,
+  orderBy,
   query,
   where,
 } from "firebase/firestore";
@@ -32,7 +33,11 @@ export default function Feeds() {
 function Replies(props: any) {
   const threadId = props.threadId;
   const ref = collection(getFirestore(), "replies-v1");
-  const q = query(ref, where("threadId", "==", threadId));
+  const q = query(
+    ref,
+    where("threadId", "==", threadId),
+    orderBy("createdAt", "asc")
+  );
   const { status, data: replies } = useFirestoreCollectionData(q);
 
   if (status === "loading") {
