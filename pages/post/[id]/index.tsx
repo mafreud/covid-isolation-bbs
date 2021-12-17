@@ -6,6 +6,7 @@ import {
   where,
 } from "firebase/firestore";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { useFirestoreCollectionData, useFirestoreDocData } from "reactfire";
 import Feed from "../../../components/Feed";
 import Reply from "../../../components/Reply";
@@ -13,6 +14,11 @@ import Reply from "../../../components/Reply";
 export default function Feeds() {
   const router = useRouter();
   const { id } = router.query;
+
+  if (id === undefined || id === null) {
+    return <span>loading...</span>;
+  }
+
   return (
     <div className="m-20">
       <Post threadId={id} />
@@ -29,13 +35,17 @@ export default function Feeds() {
 }
 
 function Replies(props: any) {
+  // useEffect(() => {
+  //   if (props.threadId === undefined) {
+  //     return;
+  //   }
+  // }, []);
   const threadId = props.threadId;
-  if (props.threadId === undefined || props.threadId === null) {
-    return <p>データを取得中...</p>;
-  }
+  // if (props.threadId === undefined || props.threadId === null) {
+  //   return <p>データを取得中...</p>;
+  // }
   const ref = collection(getFirestore(), "replies-v1");
   const q = query(ref, where("threadId", "==", threadId));
-  // ReactFire!
   const { status, data: replies } = useFirestoreCollectionData(q);
 
   if (status === "loading") {
@@ -54,11 +64,10 @@ function Replies(props: any) {
 }
 
 function Post(props: any) {
-  const threadId = props.threadId;
-  if (props.threadId === undefined || props.threadId === null) {
-    return <p>データを取得中...</p>;
-  }
-  const ref = doc(getFirestore(), "threads-v1", threadId);
+  // if (props.threadId === undefined || props.threadId === null) {
+  //   return <p>データを取得中...</p>;
+  // }
+  const ref = doc(getFirestore(), "threads-v1", props.threadId);
   const { status, data } = useFirestoreDocData(ref);
 
   if (status === "loading") {
