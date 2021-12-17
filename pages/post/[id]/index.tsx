@@ -6,7 +6,6 @@ import {
   where,
 } from "firebase/firestore";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 import { useFirestoreCollectionData, useFirestoreDocData } from "reactfire";
 import Feed from "../../../components/Feed";
 import Reply from "../../../components/Reply";
@@ -22,10 +21,6 @@ export default function Feeds() {
   return (
     <div className="m-20">
       <Post threadId={id} />
-
-      {/* <Feed sender={"admin"} text={"Hey"} />
-      <Feed sender={"admin"} text={"Hey"} />
-      <Feed sender={"admin"} text={"Hey"} /> */}
       <Replies threadId={id} />
       <div className="max-w-md mt-10 mx-2">
         <Reply threadId={id} />
@@ -35,15 +30,7 @@ export default function Feeds() {
 }
 
 function Replies(props: any) {
-  // useEffect(() => {
-  //   if (props.threadId === undefined) {
-  //     return;
-  //   }
-  // }, []);
   const threadId = props.threadId;
-  // if (props.threadId === undefined || props.threadId === null) {
-  //   return <p>データを取得中...</p>;
-  // }
   const ref = collection(getFirestore(), "replies-v1");
   const q = query(ref, where("threadId", "==", threadId));
   const { status, data: replies } = useFirestoreCollectionData(q);
@@ -64,9 +51,6 @@ function Replies(props: any) {
 }
 
 function Post(props: any) {
-  // if (props.threadId === undefined || props.threadId === null) {
-  //   return <p>データを取得中...</p>;
-  // }
   const ref = doc(getFirestore(), "threads-v1", props.threadId);
   const { status, data } = useFirestoreDocData(ref);
 
