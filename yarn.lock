@@ -3992,6 +3992,11 @@ tty-browserify@0.0.1:
   resolved "https://registry.npmjs.org/tty-browserify/-/tty-browserify-0.0.1.tgz"
   integrity sha512-C3TaO7K81YvjCgQH9Q1S3R3P3BtN3RIM8n+OvX4il1K1zgE8ZhI0op7kClgkxtutIE8hQrcrHBXvIheqKUUCxw==
 
+twitter-api-v2@^1.7.2:
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/twitter-api-v2/-/twitter-api-v2-1.7.2.tgz#56a8213a478e84d8e0e35e23c1714243878b0107"
+  integrity sha512-kN9ADZ6+Qbrg/8Jz9p2VDylvCCLVOwNow8JnJxLrYq0P8+UlCioec5tVBWdcf6Q2GtOO+RwxqeWQUffH1Cm5MA==
+
 type-check@^0.4.0, type-check@~0.4.0:
   version "0.4.0"
   resolved "https://registry.npmjs.org/type-check/-/type-check-0.4.0.tgz"
